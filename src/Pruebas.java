@@ -15,6 +15,9 @@ public final class Pruebas {
         casos.add(new Caso("El subtotal suma cantidad por precio", igual(Precios.calcularSubtotal(COMPRA), 2000)));
         casos.add(new Caso("El ITBIS es el 18 % del subtotal", igual(Precios.impuesto(100), 18)));
         casos.add(new Caso("El resumen muestra el total", Reporte.resumen(COMPRA).contains("Total")));
+        casos.add(new Caso("Envío de 200 por debajo de 3500", igual(Precios.cargoEnvio(100), 200)));
+        casos.add(new Caso("Envío gratis desde 3500", igual(Precios.cargoEnvio(3500), 0)));
+        casos.add(new Caso("El resumen con envío muestra el envío", Reporte.resumenConEnvio(COMPRA).contains("Envío")));
 
         int fallas = 0;
         for (Caso c : casos) {

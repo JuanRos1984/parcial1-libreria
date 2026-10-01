@@ -15,4 +15,6 @@ public final class Precios {
     public static double impuesto(double subtotal) {
         return Math.round(subtotal * ITBIS * 100.0) / 100.0;
     }
+
+    public static double cargoEnvio(double subtotal) { return subtotal >= 3500 ? 0 : 200; }
 }
